@@ -3,22 +3,27 @@ const ul = document.querySelector('ul');
 const x = document.querySelector('.fa-x')
 
 
-if (window.matchMedia('(max-width: 768px)').matches) {
 menu.addEventListener('click', () => {
-    if (ul.style.visibility === 'visible') {
-        ul.style.visibility = 'hidden';
-        menu.style.display = 'block';
-        x.style.display = 'none';
-    } else {
-        ul.style.visibility = 'visible';
+       //When user click by the menu bar the ul become visible
+        ul.classList.remove('ul-hidden-menu')
+        ul.classList.add('ul-changer')
         menu.style.display = 'none';
         x.style.display = 'block';
-    }
-
+  
        x.addEventListener('click', () => {
-         ul.style.visibility = 'hidden';
+     //When user click by the x bar the ul become invisible
+        ul.classList.add('ul-hidden-menu');    
+        ul.classList.remove('ul-changer')
+
          x.style.display = 'none';
          menu.style.display = 'block';
        })
 }
-)}
+)
+
+
+
+
+
+
+
