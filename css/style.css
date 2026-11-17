@@ -134,6 +134,54 @@ color: #121212;
 main{
   flex: 1;
 }
+
+main .container{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 2rem;
+    gap: 2rem;
+    color: white;
+}
+main .card{
+     background-color:#1A1A1A;
+     width: 100%;
+     height: 300px;
+     border-radius: 10px;
+     box-shadow: rgba(240, 229,
+      229, 0.25) 0px 54px 55px,
+       rgba(242, 237, 237, 0.12)
+        0px -12px 30px,
+         rgba(237, 230, 230, 0.12)
+          0px 4px 6px,
+           rgba(229, 224, 224, 0.17)
+            0px 12px 13px,
+             rgba(247, 242, 242, 0.09) 
+             0px -3px 5px;
+   font-family:Arial, Helvetica, sans-serif;
+ transition:  transform 1sc ease-in-out;
+}
+main .card:hover{
+   transform: scale(1.1);
+}
+main .img{
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+}
+main h3{
+text-align: center;
+padding-top: 0.8rem;
+padding-bottom: 1rem;
+font-style: italic;
+font-size: 18px;
+}
+main  .span {
+   display: flex;
+   justify-content: center;
+ gap: 2rem;
+}
 /* footer */
 
 footer{
@@ -242,12 +290,8 @@ section{
     margin-right: 4rem;
     border-radius: 40px;
   clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
-transition:  transform 1sc ease-in-out;
 }
-#hero-img:hover{
 
-    transform: scale(0.9);
-}
 section > div{
     justify-items: center;
   align-self: self-start;
@@ -260,6 +304,13 @@ section h2 {
 }
 section p{
      width: 450px;
+}
+/* main */
+main{
+    margin-top: 3rem;
+}
+main .container{
+    grid-template-columns: repeat(3, 1fr);
 }
 
 /* footer */
@@ -302,6 +353,8 @@ footer  li {
 section button{
     width: 100%;
 }
-
+main .container{
+    grid-template-columns: repeat(4, 1fr);
+}
     
 }
