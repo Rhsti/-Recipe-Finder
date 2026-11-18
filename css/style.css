@@ -134,6 +134,32 @@ color: #121212;
 main{
   flex: 1;
 }
+main .searchandselect{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.searchandselect > input{
+ background-color: #1A1A1A;
+    padding: 0.8rem 2rem;
+     width: 80%;
+    border-color: #f5f5f5;
+    border-radius: 20px;
+}
+.searchandselect select{
+ background-color: #1A1A1A;
+    padding: 0.8rem 2rem;
+     width: 80%;
+    border-color: #f5f5f5;
+    border-radius: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  letter-spacing: 1px;
+   
+}
 
 main .container{
     display: grid;
@@ -182,6 +208,7 @@ main  .span {
    justify-content: center;
  gap: 2rem;
 }
+
 /* footer */
 
 footer{
@@ -312,6 +339,16 @@ main{
 main .container{
     grid-template-columns: repeat(3, 1fr);
 }
+main .searchandselect{
+    flex-direction: row;
+     gap: 1rem;
+}
+.searchandselect > input{
+     width: 40%;
+}
+.searchandselect select{
+     width: 30%;  
+}
 
 /* footer */
 footer{
@@ -355,6 +392,13 @@ section button{
 }
 main .container{
     grid-template-columns: repeat(4, 1fr);
+}
+
+.searchandselect > input{
+     width: 35%;
+}
+.searchandselect select{
+     width: 20%;  
 }
     
 }
