@@ -1,3 +1,5 @@
+
+/*those color assisted by AI. */
 /* #B0B0B0
  #FF8A3D
  #1E1E1E*/
@@ -196,7 +198,7 @@ main .img{
     height: 60%;
     object-fit: cover;
 }
-main h3{
+.container h3{
 text-align: center;
 padding-top: 0.8rem;
 padding-bottom: 1rem;
@@ -209,6 +211,111 @@ main  .span {
  gap: 2rem;
 }
 
+.card-details{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
+    align-items: center;
+    padding-left: 2rem;
+    margin-top: 3rem;
+}
+.first-carddetails{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.first-carddetails > img{
+    width: 90%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+#back-btn{
+    width: 200px;
+    border-radius: 0.8rem;
+    padding: 0.5rem;
+    background-color: #121212;
+   cursor: pointer;
+   font-weight: bolder;
+   transition:  background-color 0.15s ease-in,   border 0.15s ease, 
+   color 0.15s ease-in;
+}
+
+#back-btn:hover{
+    background-color: #FF8A3D;
+    border: 1px solid #FF8A3D;
+    color: #121212;
+}
+#back-btn:hover  i{
+    color:#121212;
+}
+.second-carddetails{
+    align-self: start;
+margin-top: 3rem;
+font-family: Arial, Helvetica, sans-serif;
+}
+.second-carddetails h2{
+    font-size: 50px;
+    width: 300px;
+    font-style: italic;
+
+}
+.second-carddetails > div{
+    display: flex;
+    gap: 1rem;
+    padding-top: 1rem ;
+}
+.second-carddetails >  p{
+    font-size: 30px;
+   padding-top: 0.5rem;
+   color: #FF8A3D;
+   font-style: italic;
+
+}
+.ingredients{
+    width: 90%;
+    height: 360px;
+    background-color: #2a2a2a;
+    border-radius: 1rem;
+    margin-bottom: 3rem ;
+    margin-top: 2rem;
+    text-align: justify;
+    padding-left: 1rem;
+}
+.card-details h3{
+    padding-top: 1rem;
+    font-size: 25px;
+    color: #FF8A3D;
+}
+.ingredients ul{
+    padding-top: 1rem;
+        line-height: 2rem;
+}
+.ingredients i ,  .instructions i{
+    margin-right: 1rem;
+    color: #FF8A3D;
+
+}
+.instructions{
+     width: 95%;
+    height: 100%;
+    background-color: #2a2a2a;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    text-align: justify;
+    padding-left: 2rem;
+    
+}
+
+.instructions ol{
+    width: 80%;
+    padding-top: 1rem;
+        line-height: 1.7rem;
+}
+ol li::marker{
+    color: #FF8A3D;
+    
+}
 /* footer */
 
 footer{
@@ -226,6 +333,7 @@ footer{
   clip-path: polygon(49% 0%, 100% 17%, 100% 100%, 75% 100%, 0% 100%, 0% 19%);
 
 }
+
 footer > div{
      display: flex;
 }
@@ -251,7 +359,7 @@ hr{
    padding-bottom: 2rem;
    gap: 2rem;
 } 
-/* ai assisnt  */
+/* fa-instagram and fa-tiktok was assisted by AI.  */
 .fa-instagram {
   background: radial-gradient(
     circle at 30% 107%, 
@@ -349,7 +457,35 @@ main .searchandselect{
 .searchandselect select{
      width: 30%;  
 }
+.card-details{
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 2rem;
+    margin-top: 0rem;
 
+}
+.first-carddetails > img{
+    width: 100%;
+    height: 400px;
+}
+
+
+.second-carddetails >  p{
+   padding-top: 2rem;
+}
+
+.ingredients{
+    width: 70%;
+    margin-top: 0rem;
+
+}
+.instructions{
+  justify-items: center;
+}
+.instructions ol{
+    width: 100%;
+    padding-top: 1rem;
+        line-height: 2rem;
+}
 /* footer */
 footer{
     flex-direction: row;     
@@ -399,6 +535,9 @@ main .container{
 }
 .searchandselect select{
      width: 20%;  
+}
+.instructions{
+     height: 360px;
 }
     
 }
