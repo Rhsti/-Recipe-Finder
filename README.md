@@ -4,7 +4,7 @@
 Recipe Finder is a responsive web application that helps users discover recipes, search for meals, and save their favourite dishes.
 
 ## Live Demo
-[**Try Recipe Finder**] (https://courageous-daffodil-005fd5.netlify.app/)
+[**Try Recipe Finder**](https://courageous-daffodil-005fd5.netlify.app/)
 
 ## Features
 - **Browse Recipes:** Explore recipes with images and basic information.
@@ -30,6 +30,7 @@ Recipe Finder is a responsive web application that helps users discover recipes,
 The project uses the [DummyJSON Recipes API](https://dummyjson.com/recipes) to retrieve recipe data using `fetch()` and `async/await`.
 
 ## Project Structure
+
 Recipe-Finder/
 │
 ├── index.html
