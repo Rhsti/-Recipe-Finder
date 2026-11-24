@@ -107,7 +107,6 @@ fetchData()
 // filter and search
 const select = document.getElementById('difficulty-select');
 const search = document.getElementById('search-input');
-const searchandselect = document.querySelector('.searchandselect')
 
 function filterAndsearch() {
   const selectdifficulty = select.value;
@@ -129,17 +128,9 @@ function filterAndsearch() {
   // search.value = ''
 }
 // select
-select.addEventListener('change', (e) => {
-    e.preventDefault();
-  filterAndsearch()
-});
+select.addEventListener('change', filterAndsearch);
 // input
-search.addEventListener('input', filterAndsearch)
-// form 
-searchandselect.addEventListener('submit', (e) => {
-     e.preventDefault();
-  filterAndsearch();
-  })
+search.addEventListener('input', filterAndsearch);
 
 
 // find recipe detail
