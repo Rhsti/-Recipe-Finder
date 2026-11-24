@@ -27,7 +27,10 @@ menu.addEventListener('click', () => {
 
 const container = document.querySelector('.container');
 
+
 let getallRecipes = [];
+let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
 // ExploreRecipes scrollview
  document.querySelector('.ExploreRecipes').addEventListener('click' , () => {
 container.scrollIntoView({ behavior: 'smooth' });
@@ -50,12 +53,20 @@ function displayRecipes(recipesList) {
   container.innerHTML = `
       ${recipesList.map(recipe => `
         <div class="card" data-id='${recipe.id}'>
+       
+              <i class="${favorites.includes(recipe.id) ? 'fa-solid' : 'fa-regular'} 
+        fa-heart favorite-icon"
+        data-index="${recipe.id}">
+        </i>
+
+
           <img class='img' src="${recipe.image}" alt="${recipe.name}">
+           
           <h3 class='name'>${recipe.name}</h3>
           <div class='span'>
            <span><i class="fa-regular fa-clock"></i> ${recipe.cookTimeMinutes} min</span>
           <span> ${difficultyIcons[recipe.difficulty] || recipe.difficulty}</span>
-         
+          
           </div>
           </div>
           
@@ -78,6 +89,15 @@ async function fetchData() {
 
   } catch (error) {
     console.error(`Failed to fetch recipe:  ${error.message}`);
+     
+     container.innerHTML = `
+        <div class="error-message">
+    <h1>404</h1>
+    <h2>Oops! Recipes Not Found</h2>
+    <p>We couldn't load the recipes. Please try again.</p>
+  </div>
+    `;
+
   }
 }
 
@@ -87,30 +107,51 @@ fetchData()
 // filter and search
 const select = document.getElementById('difficulty-select');
 const search = document.getElementById('search-input');
+const searchandselect = document.querySelector('.searchandselect')
+
 function filterAndsearch() {
   const selectdifficulty = select.value;
-  const searchbyName = search.value.toLowerCase();
+  const searchinput = search.value.toLowerCase().trim();
 
   const filtered = getallRecipes.filter((recipe) => {
-    const matchesName = recipe.name.toLowerCase().includes(searchbyName);
+    const matchesname = recipe.name.toLowerCase().includes(searchinput);
+    const matchesmealType = recipe.mealType.some(mealtype => 
+    mealtype.toLowerCase().includes(searchinput)
+    )
+    const matchesIngredient = recipe.ingredients.some(ingredient =>
+      ingredient.toLowerCase().includes(searchinput)
+   );
     const matchesdifficulty =
       selectdifficulty == 'All' || recipe.difficulty === selectdifficulty;
-    return matchesdifficulty && matchesName;
+    return matchesdifficulty && ( matchesname || matchesIngredient || matchesmealType);
   })
   displayRecipes(filtered)
+  // search.value = ''
 }
-select.addEventListener('change', filterAndsearch);
+// select
+select.addEventListener('change', (e) => {
+    e.preventDefault();
+  filterAndsearch()
+});
+// input
 search.addEventListener('input', filterAndsearch)
+// form 
+searchandselect.addEventListener('submit', (e) => {
+     e.preventDefault();
+  filterAndsearch();
+  })
 
 
 // find recipe detail
 const recipedetails = document.getElementById('recipe-details')
-const searchandselect = document.querySelector('.searchandselect')
-
+const herosection = document.getElementById('hero-section')
 container.addEventListener('click', (e) => {
+  
+   if (e.target.closest('.favorite-icon')) return;
+   
   const cardClicked = e.target.closest('.card');
   if (!cardClicked) return;
-  //  Only dataset.id was assisted by AI.
+ 
   const recipeId = Number(cardClicked.dataset.id);
   //  find recipe
   const findRecipe = getallRecipes.find(recipe => recipe.id === recipeId)
@@ -119,14 +160,21 @@ container.addEventListener('click', (e) => {
   // Hide all recipe cards and searchandselect
   container.style.display = 'none';
   searchandselect.style.display = 'none';
+ herosection.style.display = 'none';
 
   recipedetails.innerHTML = `
 
     <div class='card-details'>
+    
      <div class='first-carddetails'>
       <button id="back-btn"><i class="fa-solid fa-angle-left"></i> Back to Recipes</button>
 
       <img src="${findRecipe.image}" alt="${findRecipe.name}">
+       <i class="${favorites.includes(findRecipe.id) ? 'fa-solid' : 'fa-regular'} 
+      fa-heart favorite-icons"
+      data-index="${findRecipe.id}">
+      </i>
+
      </div>
 
 
@@ -164,9 +212,56 @@ container.addEventListener('click', (e) => {
   // back to Recipes
   document.getElementById('back-btn').addEventListener('click', () => {
     container.style.display = 'grid';
+    searchandselect.style.display = 'flex'
+    herosection.style.display = 'grid';
     recipedetails.innerHTML = ''
   })
 
 })
+
+
+// favorite container
+container.addEventListener('click', (e) => {
+  const heart = e.target.closest('.favorite-icon');
+
+  if (!heart) return;
+
+  const recipeId = Number(heart.dataset.index);
+
+  if (favorites.includes(recipeId)) {
+    // Remove from favourites
+    favorites = favorites.filter(id => id !== recipeId);
+  } else {
+    // Add to favourites
+    favorites.push(recipeId);
+  }
+
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+
+  displayRecipes(getallRecipes);
+});
+
+// favorite recipedetails
+recipedetails.addEventListener('click', (e) => {
+  const heart = e.target.closest('.favorite-icons');
+
+  if (!heart) return;
+
+  const recipeId = Number(heart.dataset.index);
+
+  if (favorites.includes(recipeId)) {
+    // Remove from favourites
+    favorites = favorites.filter(id => id !== recipeId);
+  } else {
+    // Add to favourites
+    favorites.push(recipeId);
+  }
+
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+  const isFavorite = favorites.includes(recipeId);
+
+  heart.classList.toggle('fa-solid', isFavorite);
+  heart.classList.toggle('fa-regular', !isFavorite);
+});
 
 

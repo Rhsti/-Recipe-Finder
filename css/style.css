@@ -145,12 +145,27 @@ main .searchandselect{
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
-.searchandselect > input{
+.searchandselect div {
+     display: flex;
+}
+.searchandselect input{
  background-color: #1A1A1A;
     padding: 0.8rem 2rem;
      width: 80%;
     border-color: #f5f5f5;
-    border-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    
+    
+}
+.searchandselect #search-btn{
+     border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+     padding: 0.6rem 0.8rem;
+    background-color: #1A1A1A;
+   cursor: pointer;
+   font-weight: bolder;
+  
 }
 .searchandselect select{
  background-color: #1A1A1A;
@@ -190,6 +205,7 @@ main .card{
    font-family:Arial, Helvetica, sans-serif;
  transition:  transform 1sc ease-in-out;
 }
+
 main .card:hover{
    transform: scale(1.1);
 }
@@ -197,6 +213,39 @@ main .img{
     width: 100%;
     height: 60%;
     object-fit: cover;
+}
+.image-container {
+  position: relative;
+}
+
+ .favorite-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: white;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: red;
+}
+
+.favorite-icons{
+    position: absolute;
+  left: 670px;
+  top: 200px;
+  border: none;
+  background: white;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: red; 
+}
+
+.card {
+  position: relative;
 }
 .container h3{
 text-align: center;
@@ -316,6 +365,27 @@ ol li::marker{
     color: #FF8A3D;
     
 }
+
+.error-message {
+   justify-items: center;
+  padding: 30px;
+  color: #F5F5F5;
+}
+
+.error-message button {
+  background-color: #FF8A3D;
+  color: #121212;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.error-message button:hover {
+  opacity: 0.8;
+}
+
 /* footer */
 
 footer{
