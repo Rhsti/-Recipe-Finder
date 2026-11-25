@@ -162,12 +162,12 @@ container.addEventListener('click', (e) => {
     
      <div class='first-carddetails'>
       <button id="back-btn"><i class="fa-solid fa-angle-left"></i> Back to Recipes</button>
-
-      <img src="${findRecipe.image}" alt="${findRecipe.name}">
-       <i class="${favorites.includes(findRecipe.id) ? 'fa-solid' : 'fa-regular'} 
+  <i class="${favorites.includes(findRecipe.id) ? 'fa-solid' : 'fa-regular'} 
       fa-heart favorite-icons"
       data-index="${findRecipe.id}">
       </i>
+      <img src="${findRecipe.image}" alt="${findRecipe.name}">
+     
 
      </div>
 

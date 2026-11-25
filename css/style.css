@@ -221,8 +221,8 @@ main .img{
 }
 
 .favorite-icons{
-    position: absolute;
-  left: 670px;
+     position: absolute;
+  left: 80%;
   top: 200px;
   border: none;
   background: white;
@@ -372,7 +372,9 @@ footer{
    flex-direction: column;
      justify-content: space-around;
    align-items: center; 
-   height: 100%;
+
+   height: auto;
+   min-height: 150px;
    margin: 0;
    padding-top: 1.5rem;
 
@@ -534,11 +536,14 @@ main .searchandselect{
     padding-top: 1rem;
         line-height: 2rem;
 }
+.favorite-icons{
+  left: 44%;
+}
 /* footer */
 footer{
     flex-direction: row;     
      clip-path: none;
-
+     
 
 }
 footer ul {
@@ -577,6 +582,7 @@ section button{
 main .container{
     grid-template-columns: repeat(4, 1fr);
 }
+
 
 .searchandselect > input{
      width: 35%;
