@@ -47,14 +47,14 @@ async function displayFavorites() {
     const allRecipes = data.recipes;
 
     // Find only favourite recipes 
-    // assisted by AI
+    // assisted by AI  only the first const code but I understand what I am doing and how my code works.
     const favoriteRecipes = allRecipes.filter(recipe =>
       favorites.includes(recipe.id)
     );
 
     if (favoriteRecipes.length === 0) {
       favoriteContainer.innerHTML =
-      // assisted by AI  ❤️.
+      // assisted by AI only heart ❤️.
         '<p>You have no favourite recipes yet ❤️</p>';
       return;
     }

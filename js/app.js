@@ -221,7 +221,7 @@ container.addEventListener('click', (e) => {
   if (!heart) return;
 
   const recipeId = Number(heart.dataset.index);
-
+// assisted by AI only first if but I understand what I am doing and how my code works.
   if (favorites.includes(recipeId)) {
     // Remove from favourites
     favorites = favorites.filter(id => id !== recipeId);
